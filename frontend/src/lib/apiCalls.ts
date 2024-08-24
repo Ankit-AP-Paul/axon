@@ -1,10 +1,11 @@
 const API_URL = process.env.NEXT_PUBLIC_API_URL as string
 
-export async function userSignIn(publicKey: string, signature: string) {
+export async function userSignIn(address: string, publicKey: string, signature: string) {
     try {
-        const res = await fetch(`${API_URL}/signin`, {
+        const res = await fetch(`${API_URL}/auth/signin`, {
             method: 'POST',
             body: JSON.stringify({
+                address,
                 publicKey,
                 signature
             }),
@@ -16,7 +17,7 @@ export async function userSignIn(publicKey: string, signature: string) {
 
         const data = await res.json()
 
-        return data
+        return data.message
     }
     catch (err) {
         console.error(err)
@@ -26,7 +27,7 @@ export async function userSignIn(publicKey: string, signature: string) {
 
 export async function logout() {
     try {
-        const res = await fetch(`${API_URL}/logout`, {
+        const res = await fetch(`${API_URL}/auth/logout`, {
             credentials: 'include'
         })
 
@@ -41,7 +42,7 @@ export async function logout() {
 
 export async function getPresignedURL(filename: string) {
     try {
-        const res = await fetch(`${API_URL}/presignedUrl?filename=${filename}`, {
+        const res = await fetch(`${API_URL}/store/presignedUrl?filename=${filename}`, {
             credentials: 'include'
         })
 
