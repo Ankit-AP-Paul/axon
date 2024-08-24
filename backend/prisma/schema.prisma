@@ -8,6 +8,17 @@ datasource db {
 }
 
 model User {
-  id      String @default(uuid())
-  address String @unique
+  id      String  @default(uuid())
+  address String  @unique
+  email   String? @unique
+  name    String
+  role    Role
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Role {
+  PROVIDER
+  CONTRACTOR
 }
