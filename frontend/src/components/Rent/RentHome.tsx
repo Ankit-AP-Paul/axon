@@ -21,7 +21,7 @@ export default function RentHome() {
           backgroundRepeat: "no-repeat",
           backgroundPosition: "90%",
         }}>
-        <div className="flex flex-col ">
+        <div className="flex flex-col text-black ">
           <h2 className="text-2xl font-bold ">Looking for the dashboard?</h2>
           <span>Your console is here, with all deployments ready to go</span>
         </div>
@@ -42,16 +42,16 @@ export default function RentHome() {
             backgroundRepeat: "no-repeat",
             backgroundPosition: "90%",
           }}>
-          <h2 className="md:text-4xl font-bold">
+          <h2 className="md:text-4xl font-bold text-black">
             Want that super compute for your heavy tasks?
           </h2>
-          <span>
+          <span className="text-black">
             Rent a machine today from our providers and start your tasks with
             ease! Our providers are verified and always provide the best compute
             for all your tasks, with full commitment
           </span>
         </div>
-        <div className="w-[50%] generalBorder offsetEffect bg-purple-900 flex items-center justify-center text-white font-bold text-3xl flex-col gap-2">
+        <div className="w-[50%] generalBorder offsetEffect text-black bg-purple-900 flex items-center justify-center text-white font-bold text-3xl flex-col gap-2">
           <div className="flex flex-col justify-center items-center">
             <h2>Rent a machine today</h2>
             <span className="md:text-xl font-medium opacity-80">

@@ -15,13 +15,13 @@ export default function ProviderHome() {
         alt="provider home"
       />
       <div
-        className="offsetEffect generalBorder my-4 flex flex-col gap-2 bg-pink-400"
+        className="offsetEffect generalBorder my-4 flex flex-col gap-2 bg-pink-400 text-black"
         style={{
           backgroundImage: `url(${images.here})`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "90%",
         }}>
-        <div className="flex flex-col ">
+        <div className="flex text-black flex-col ">
           <h2 className="text-2xl font-bold ">Looking for the dashboard?</h2>
           <span>
             All your resource sharing, earnings and everything of you being a
@@ -37,7 +37,7 @@ export default function ProviderHome() {
           </Link>
         </Button>
       </div>
-      <div className="flex justify-between gap-2">
+      <div className="flex justify-between gap-2 text-black">
         <div
           className="w-[50%]  bg-blue-300 generalBorder offsetEffect flex flex-col gap-2"
           style={{
@@ -71,7 +71,7 @@ export default function ProviderHome() {
           backgroundRepeat: "no-repeat",
           backgroundPosition: "90%",
         }}
-        className="w-full bg-yellow-300 my-4 offsetEffect generalBorder flex flex-col gap-4 items-center justify-center">
+        className="w-full text-black bg-yellow-300 my-4 offsetEffect generalBorder flex flex-col gap-4 items-center justify-center">
         <Download size={30} />
         <h2 className="text-3xl font-bold">Download the Axon daemon now!</h2>
         <span className="text-center max-w-[50%]">
