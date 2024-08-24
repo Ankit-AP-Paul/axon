@@ -1,9 +1,10 @@
+import { verifySignature } from '@taquito/utils'
 import jwt from 'jsonwebtoken'
-import nacl from 'tweetnacl'
 import { Router } from "express"
 import { authMiddleware } from "../middleware"
 import { bucketName, minioClient } from "../lib/minio/config"
 import { JWT_SECRET, prismaClient } from "../config"
+import { generateMessageWithMagicByte } from '../utils/magic-bytes'
 
 
 const router = Router()
@@ -30,15 +31,12 @@ router.get('/presignedUrl', authMiddleware, async (req, res) => {
 router.post('/signin', async (req, res) => {
     const { publicKey, signature } = req.body
 
-    const message = new TextEncoder().encode(`Sign into axon on ${new Date().getDate()}.${new Date().getMonth()}.${new Date().getFullYear()}`)
+    const message = `Sign into axon on ${new Date().getDate()}.${new Date().getMonth()}.${new Date().getFullYear()}`
+    // const messageBytes = generateMessageWithMagicByte(message, 'pack')
 
-    // const result = nacl.sign.detached.verify(
-    //     message,
-    //     new Uint8Array(signature.data),
-    //     new PublicKey(publicKey).toBytes()
-    // )
+    // const isValid = verifySignature(messageBytes, publicKey, signature)
 
-    // if (!result) {
+    // if (!isValid) {
     //     return res.status(411).json({
     //         message: 'Incorrect signature'
     //     })

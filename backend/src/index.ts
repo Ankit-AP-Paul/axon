@@ -9,6 +9,9 @@ import { createServer } from 'node:http'
 dotenv.config()
 
 
+import userRouter from './routers/user'
+
+
 const app = express()
 const httpServer = createServer(app)
 
@@ -29,6 +32,10 @@ app.use(cookieSession({
     signed: true,
     overwrite: true
 }))
+
+
+
+app.use('/api/v1/user', userRouter)
 
 
 

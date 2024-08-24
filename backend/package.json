@@ -12,6 +12,7 @@
   "dependencies": {
     "@prisma/client": "^5.18.0",
     "@taquito/taquito": "^20.0.1",
+    "@taquito/utils": "^20.0.1",
     "bs58": "^6.0.0",
     "bullmq": "^5.12.10",
     "cookie-session": "^2.1.0",
@@ -21,7 +22,6 @@
     "jsonwebtoken": "^9.0.2",
     "minio": "^8.0.1",
     "morgan": "^1.10.0",
-    "tweetnacl": "^1.0.3",
     "zod": "^3.23.8"
   },
   "devDependencies": {
