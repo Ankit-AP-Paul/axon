@@ -3,6 +3,7 @@ import {Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import NavbarMain from "@/components/common/NavbarMain";
 import dynamic from "next/dynamic";
+import { Toaster } from "sonner";
 
 const inter = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -26,6 +27,7 @@ export default function RootLayout({
       <body className={`${inter.className} bg-gray-900 text-white`}>
         <Navbar />
         {children}
+        <Toaster position="bottom-center" theme="light" />
       </body>
     </html>
   );

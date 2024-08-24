@@ -15,16 +15,7 @@ export default function LaunchApp() {
         </span>
       </div>
 
-      <div className="generalBorder offsetEffect bg-orange-300 flex flex-col gap-2 items-center justify-center">
-        <LucideRocket color="black" />
-        <h2 className="text-2xl font-semibold text-black ">Launch the Axon daemon</h2>
-        <Button className="offsetEffect generalBorder bg-white text-black hover:text-white">
-          Launch now!
-        </Button>
-      </div>
-      <div className="py-2 flex items-center justify-center">
-        <span>OR</span>
-      </div>
+
       <div
         style={{
           backgroundImage: `url(${images.daemon})`,

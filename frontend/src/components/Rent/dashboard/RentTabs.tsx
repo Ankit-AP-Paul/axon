@@ -14,7 +14,7 @@ export default function RentTabs({ onChange, activeIdx }: Props) {
                 onChange(0);
                 setActiveIndex(0)
             }} active={activeIndex === 0 ? true : false} />
-            <ChipsButton content='Costs' onClick={() => {
+            <ChipsButton content='Profile' onClick={() => {
                 onChange(1)
                 setActiveIndex(1)
             }} active={activeIndex === 1 ? true : false} />

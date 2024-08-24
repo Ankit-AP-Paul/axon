@@ -1,7 +1,17 @@
-import React from 'react'
+"use client"
+import RentForm from '@/components/forms/Rent/RentForm'
+import { getContractor } from '@/lib/apiCalls'
+import React, { useEffect, useTransition } from 'react'
+import { toast } from 'sonner'
 
-export default function Costs() {
+
+export default function Profile() {
+
+
     return (
-        <div>Costs</div>
+        <div>Profile
+
+            <RentForm/>
+        </div>
     )
 }

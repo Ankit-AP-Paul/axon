@@ -14,26 +14,20 @@ export default function ProviderTabs({ onChange, activeIdx }: Props) {
                 onChange(0);
                 setActiveIndex(0)
             }} active={activeIndex === 0 ? true : false} />
-            <ChipsButton content='Resources' onClick={() => {
+
+            <ChipsButton content='Profile' onClick={() => {
                 onChange(1)
                 setActiveIndex(1)
             }} active={activeIndex === 1 ? true : false} />
-            <ChipsButton content='Status' onClick={() => {
+            <ChipsButton content='Wallet' onClick={() => {
                 onChange(2)
                 setActiveIndex(2)
             }} active={activeIndex === 2 ? true : false} />
-            <ChipsButton content='Wallet' onClick={() => {
+
+            <ChipsButton content='Transactions' onClick={() => {
                 onChange(3)
                 setActiveIndex(3)
             }} active={activeIndex === 3 ? true : false} />
-            <ChipsButton content='Earnings' onClick={() => {
-                onChange(4)
-                setActiveIndex(4)
-            }} active={activeIndex === 4 ? true : false} />
-            <ChipsButton content='Transactions' onClick={() => {
-                onChange(5)
-                setActiveIndex(5)
-            }} active={activeIndex === 5 ? true : false} />
         </div>
     )
 }
