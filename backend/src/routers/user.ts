@@ -1,14 +1,12 @@
 import jwt from 'jsonwebtoken'
 import nacl from 'tweetnacl'
-import { PrismaClient } from "@prisma/client"
 import { Router } from "express"
 import { authMiddleware } from "../middleware"
 import { bucketName, minioClient } from "../lib/minio/config"
-import { JWT_SECRET } from "../config"
+import { JWT_SECRET, prismaClient } from "../config"
 
 
 const router = Router()
-const prismaClient = new PrismaClient()
 
 
 router.get('/presignedUrl', authMiddleware, async (req, res) => {

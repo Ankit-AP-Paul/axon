@@ -1,3 +1,5 @@
+import { PrismaClient } from "@prisma/client"
+
 export const JWT_SECRET = process.env.JWT_SECRET!
 
 export const PARENT_WALLET_ADDRESS = process.env.PARENT_WALLET_ADDRESS as string
@@ -17,3 +19,7 @@ export const redisConnection = {
     username: process.env.REDIS_USERNAME,
     password: process.env.REDIS_PASSWORD
 }
+
+export const prismaClient = new PrismaClient({
+    log: ['info', 'warn', 'error']
+})
