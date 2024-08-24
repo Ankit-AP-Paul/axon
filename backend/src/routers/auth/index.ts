@@ -2,30 +2,29 @@ import { verifySignature } from '@taquito/utils'
 import jwt from 'jsonwebtoken'
 import { Router } from "express"
 import { JWT_SECRET, prismaClient } from '../../config'
+import { messageToHexExpr } from '../../utils/magic-bytes'
 
 
 const router = Router()
 
 
 router.post('/signin', async (req, res) => {
-    const { publicKey, signature } = req.body
+    const { address, publicKey, signature } = req.body
 
     const message = `Sign into axon on ${new Date().getDate()}.${new Date().getMonth()}.${new Date().getFullYear()}`
-    // const messageBytes = generateMessageWithMagicByte(message, 'pack')
 
-    // const isValid = verifySignature(messageBytes, publicKey, signature)
+    const isVerified = verifySignature(messageToHexExpr(message), publicKey, signature)
 
-    // if (!isValid) {
-    //     return res.status(411).json({
-    //         message: 'Incorrect signature'
-    //     })
-    // }
-
+    if (!isVerified) {
+        return res.status(411).json({
+            message: 'Incorrect signature'
+        })
+    }
 
     try {
         const existingUser = await prismaClient.user.findFirst({
             where: {
-                address: publicKey
+                address
             }
         })
 
@@ -43,7 +42,7 @@ router.post('/signin', async (req, res) => {
         else {
             const user = await prismaClient.user.create({
                 data: {
-                    address: publicKey
+                    address
                 }
             })
 

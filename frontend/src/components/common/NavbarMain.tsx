@@ -14,7 +14,7 @@ import {
   RequestSignPayloadInput,
   SigningType,
 } from "@airgap/beacon-sdk";
-import { userSignIn } from "@/lib/apiCalls";
+import { logout, userSignIn } from "@/lib/apiCalls";
 
 const Tezos = new TezosToolkit("https://ghostnet.ecadinfra.com");
 const wallet = new BeaconWallet({
@@ -22,7 +22,7 @@ const wallet = new BeaconWallet({
   network: { type: NetworkType.GHOSTNET }
 })
 
-const messageToHexExpr = (message: string) => {
+function messageToHexExpr(message: string) {
   const bytes = stringToBytes(message)
   const bytesLength = (bytes.length / 2).toString(16)
   const addPadding = `00000000${bytesLength}`
@@ -32,12 +32,10 @@ const messageToHexExpr = (message: string) => {
   return hexExpr
 }
 
-Tezos.setWalletProvider(wallet);
+Tezos.setWalletProvider(wallet)
 
 const NavbarMain = () => {
-  const [walletAddress, setWalletAddress] = useState<string | undefined>(
-    undefined
-  );
+  const [walletAddress, setWalletAddress] = useState<string | undefined>(undefined)
 
   useEffect(() => {
     const checkAccount = async () => {
@@ -51,10 +49,10 @@ const NavbarMain = () => {
   }, []);
 
   const connect = async () => {
-    const { address } = await wallet.client.requestPermissions();
+    const { address, publicKey } = await wallet.client.requestPermissions();
     setWalletAddress(address);
 
-    if (!address) return
+    if (!address || !publicKey) return
 
     const message = `Sign into axon on ${new Date().getDate()}.${new Date().getMonth()}.${new Date().getFullYear()}`
 
@@ -68,13 +66,14 @@ const NavbarMain = () => {
 
     if (!response) return
 
-    await userSignIn(address, response.signature)
-  };
+    await userSignIn(address, publicKey, response.signature)
+  }
 
   const disconnect = async () => {
-    await wallet.client.clearActiveAccount();
-    setWalletAddress(undefined);
-  };
+    await wallet.client.clearActiveAccount()
+    setWalletAddress(undefined)
+    await logout()
+  }
 
   return (
     <div className="sticky top-4 px-[5%]">

@@ -40,11 +40,11 @@ app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/store', storeRouter)
 
 
-app.use('/minio/events', async (req, res) => {
-    console.log(req.body)
+// app.use('/minio/events', async (req, res) => {
+//     console.log(req.body)
 
-    res.json('Event Received')
-})
+//     res.json('Event Received')
+// })
 
 
 
