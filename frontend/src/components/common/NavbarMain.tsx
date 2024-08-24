@@ -77,13 +77,13 @@ export default function NavbarMain() {
   };
 
   return (
-    <div className="sticky top-4 px-[5%]">
-      <nav className="px-[2%] rounded-md offsetEffect bg-[#b3a2e5]  py-2 border border-black flex justify-between items-center">
+    <div className="flex w-full">
+      <nav className="px-[2%] w-full bg-transparent  py-2  flex justify-between items-center">
         <div className="flex items-center gap-2">
-          <Image src={images["log-black"]} height={40} width={40} alt="lgo" />
+          <Image src={images["logo"]} height={40} width={40} alt="lgo" />
           <span className="font-bold text-lg">Axon</span>
         </div>
-        <div className="font-medium md:flex hidden gap-2 items-center w-max">
+        <div className="font-medium md:flex hidden gap-4 items-center w-max">
           <Link href="/">Home</Link>
           <Link href="/docs">Docs</Link>
           <Link href="/#faq">FAQs</Link>

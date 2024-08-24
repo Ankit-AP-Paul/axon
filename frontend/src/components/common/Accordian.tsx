@@ -27,13 +27,13 @@ export default function Accordion({ question, answer, className }: Props) {
     return (
         <div
             data-state={showContent ? 'open' : 'closed'}
-            className="w-full group rounded-base border-2 border-black rounded-md offsetEffect"
+            className="w-full group rounded-base border-2 border-white rounded-md text-white "
         >
             <button
                 role="button"
                 aria-expanded={showContent}
                 className={cn(
-                    'flex w-full items-center text-text transition-[border-radius] justify-between border-b-0 group-data-[state=closed]:rounded-md group-data-[state=open]:rounded-t-md group-data-[state=open]:border-b-2 border-b-black bg-yellow-300 p-4 md:p-5 font-bold lg:text-xl',
+                    'flex w-full items-center text-text transition-[border-radius] justify-between border-b-0 group-data-[state=closed]:rounded-md group-data-[state=open]:rounded-t-md group-data-[state=open]:border-b-2 border-b-white p-4 md:p-5 font-bold lg:text-xl',
                     className,
                 )}
                 onClick={() => {

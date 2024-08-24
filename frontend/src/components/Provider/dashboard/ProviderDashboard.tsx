@@ -12,7 +12,7 @@ export default function ProviderDashboard() {
     const [activeTab, setActiveTab] = useState(0);
     return (
         <div className='px-[5%]'>
-            <h1 className='text-3xl font-bold'>Dashboard</h1>
+            <h1 className='text-3xl font-bold text-white'>Dashboard</h1>
             <ProviderTabs activeIdx={activeTab} onChange={(val) => {
                 setActiveTab(val);
             }} />
