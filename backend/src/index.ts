@@ -9,7 +9,8 @@ import { createServer } from 'node:http'
 dotenv.config()
 
 
-import userRouter from './routers/user'
+import authRouter from './routers/auth'
+import storeRouter from './routers/store'
 
 
 const app = express()
@@ -35,7 +36,15 @@ app.use(cookieSession({
 
 
 
-app.use('/api/v1/user', userRouter)
+app.use('/api/v1/auth', authRouter)
+app.use('/api/v1/store', storeRouter)
+
+
+app.use('/minio/events', async (req, res) => {
+    console.log(req.body)
+
+    res.json('Event Received')
+})
 
 
 
