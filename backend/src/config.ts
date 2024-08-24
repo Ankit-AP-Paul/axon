@@ -1,3 +1,5 @@
+export const JWT_SECRET = process.env.JWT_SECRET!
+
 export const PARENT_WALLET_ADDRESS = process.env.PARENT_WALLET_ADDRESS as string
 export const PARENT_WALLET_PRIVATE_KEY = process.env.PARENT_WALLET_PRIVATE_KEY as string
 
