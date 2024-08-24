@@ -1,31 +1,10 @@
 import { verifySignature } from '@taquito/utils'
 import jwt from 'jsonwebtoken'
 import { Router } from "express"
-import { authMiddleware } from "../middleware"
-import { bucketName, minioClient } from "../lib/minio/config"
-import { JWT_SECRET, prismaClient } from "../config"
-import { generateMessageWithMagicByte } from '../utils/magic-bytes'
+import { JWT_SECRET, prismaClient } from '../../config'
 
 
 const router = Router()
-
-
-router.get('/presignedUrl', authMiddleware, async (req, res) => {
-    //@ts-ignore
-    const userID = req.userID
-
-    const { filename } = req.query
-    const objectName = `${userID}/${filename}`
-
-    try {
-        const presignedURL = await minioClient.presignedPutObject(bucketName, objectName, 1 * 60 * 60)
-
-        res.json({ userID, presignedURL })
-    }
-    catch (err) {
-        console.log(err)
-    }
-})
 
 
 router.post('/signin', async (req, res) => {

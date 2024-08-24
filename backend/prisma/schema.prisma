@@ -8,6 +8,74 @@ datasource db {
 }
 
 model User {
-  id      String @default(uuid())
+  id      String @id @default(uuid())
   address String @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  provider   Provider?
+  contractor Contractor?
+}
+
+model Provider {
+  id     String  @id @default(uuid())
+  email  String? @unique
+  name   String?
+  Wallet Wallet?
+
+  user_id String    @unique
+  user    User      @relation(fields: [user_id], references: [id])
+  payouts Payouts[]
+  machine Machine[]
+}
+
+model Wallet {
+  id                String @id @default(uuid())
+  pending_amount    Int
+  processing_amount Int
+  locked_amount     Int
+
+  provider_id String   @unique
+  provider    Provider @relation(fields: [provider_id], references: [id])
+}
+
+model Contractor {
+  id    String  @id @default(uuid())
+  email String? @unique
+  name  String?
+
+  user_id String @unique
+  user    User   @relation(fields: [user_id], references: [id])
+}
+
+model Machine {
+  id    String @id @default(uuid())
+  title String
+  cpu   Int
+  ram   Int
+  size  Int
+  time  Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  provider_id String
+  provider    Provider @relation(fields: [provider_id], references: [id])
+}
+
+model Payouts {
+  id        String    @id @default(uuid())
+  amount    Int
+  signature String?
+  status    TxnStatus
+
+  provider_id String
+  provider    Provider @relation(fields: [provider_id], references: [id])
+}
+
+enum TxnStatus {
+  Processing
+  Success
+  Failure
 }
