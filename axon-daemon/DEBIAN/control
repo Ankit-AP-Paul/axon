@@ -1,0 +1,8 @@
+Package: axon-daemon
+Version: 1.0
+Section: base
+Priority: optional
+Architecture: all
+Depends: bash
+Maintainer: Abhirup Saha <abhirupsaha02@gmail.com>
+Description: Daemon process for Axon
