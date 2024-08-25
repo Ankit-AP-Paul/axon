@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { authMiddleware } from "../../middleware";
 import { prismaClient } from "../../config";
+import { exec } from 'node:child_process'
 
 const router = Router()
 
@@ -85,6 +86,7 @@ router.post('/create', authMiddleware, async (req, res) => {
         })
 
         // TODO: create binary with cpu and ram as arguments
+        // exec(`/`)
 
         console.log(machine)
 
