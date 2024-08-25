@@ -8,8 +8,8 @@ datasource db {
 }
 
 model User {
-  id         String @id @default(uuid())
-  address    String @unique
+  id      String @id @default(uuid())
+  address String @unique
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -50,12 +50,12 @@ model Contractor {
 }
 
 model Machine {
-  id    String @id @default(uuid())
-  title String
-  cpu   Int
-  ram   Int
-  size  Int
-  time  Int
+  id     String  @id @default(uuid())
+  title  String
+  cpu    Int
+  ram    Int
+  size   Int
+  time   Int?
   in_use Boolean @default(false)
 
   createdAt DateTime @default(now())

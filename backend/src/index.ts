@@ -11,6 +11,8 @@ dotenv.config()
 
 import authRouter from './routers/auth'
 import storeRouter from './routers/store'
+import machineRouter from './routers/machine'
+import rentRouter from './routers/rent'
 
 
 const app = express()
@@ -38,6 +40,8 @@ app.use(cookieSession({
 
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/store', storeRouter)
+app.use('/api/v1/machine', machineRouter)
+app.use('/api/v1/rent', rentRouter)
 
 
 // app.use('/minio/events', async (req, res) => {
