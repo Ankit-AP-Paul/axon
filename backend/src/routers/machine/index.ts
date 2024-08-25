@@ -7,7 +7,11 @@ const router = Router()
 
 router.get('/', async (req, res) => {
     try {
-        const machines = await prismaClient.machine.findMany()
+        const machines = await prismaClient.machine.findMany({
+            where: {
+                in_use: false
+            }
+        })
 
         res.status(200).json({ machines })
     }
@@ -23,7 +27,6 @@ router.get('/', async (req, res) => {
 router.get('/my-machines', authMiddleware, async (req, res) => {
     //@ts-ignore
     const userID = req.userID
-    console.log(userID);
 
     try {
         const provider = await prismaClient.provider.findUnique({
@@ -77,9 +80,11 @@ router.post('/create', authMiddleware, async (req, res) => {
                 title,
                 cpu,
                 ram,
-                size,
+                size
             }
         })
+
+        // TODO: create binary with cpu and ram as arguments
 
         console.log(machine)
 

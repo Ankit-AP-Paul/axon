@@ -130,7 +130,7 @@ export async function getPresignedURL(filename: string) {
   }
 }
 
-export async function getAllMachine() {
+export async function getAllMachines() {
   try {
     const res = await fetch(`${API_URL}/machine/`);
 
@@ -142,12 +142,7 @@ export async function getAllMachine() {
   }
 }
 
-export async function createMachine(
-  title: string,
-  cpu: number,
-  ram: number,
-  size: number
-) {
+export async function createMachine(title: string, cpu: number, ram: number, size: number) {
   try {
     const res = await fetch(`${API_URL}/machine/create`, {
       method: "POST",
@@ -161,26 +156,28 @@ export async function createMachine(
         "Content-Type": "application/json",
       },
       credentials: "include",
-    });
+    })
 
-    const data = await res.json();
+    const data = await res.json()
 
-    return data.message;
+    return data.message
+
   } catch (err) {
     console.error(err);
   }
 }
 
-export async function getMachine() {
+export async function getMyMachines() {
   try {
     const res = await fetch(`${API_URL}/machine/my-machines`, {
-      credentials: "include",
+      credentials: 'include',
     });
 
-    const data = await res.json();
+    const data = await res.json()
 
-    return data.machines;
+    return data.machines
+    
   } catch (err) {
-    console.error(err);
+    console.error(err)
   }
 }

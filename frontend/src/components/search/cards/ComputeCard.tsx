@@ -6,14 +6,15 @@ import { twMerge } from 'tailwind-merge';
 
 interface Props {
     props: SpecsCard;
-    selected:boolean;
-    onChange:()=>void
+    selected?: boolean;
+    onChange?: () => void
 }
-export default function ComputeCard({ props,selected ,onChange}: Props) {
+export default function ComputeCard({ props, selected, onChange }: Props) {
     return (
-        <div onClick={()=>{
-            onChange();
-        }} className={twMerge( selected?"bg-white text-black  border-black":"bg-black text-white border-white"  ,' p-4 border  gap-2  rounded-md cursor-pointer ', )}>
+        <div
+            onClick={onChange}
+            className={twMerge("p-4 border gap-2 rounded-md cursor-pointer", props.in_use ? "bg-slate-50 text-black" : "bg-green-500 text-black")}
+        >
             <div className='grid grid-cols-2 gap-2'>
                 <div className='flex flex-col '>
                     <span className='text-xs text-gray-600'>Device name</span>
@@ -31,7 +32,6 @@ export default function ComputeCard({ props,selected ,onChange}: Props) {
                     <span className='text-xs text-gray-600'>Available space</span>
                     <h1 className='text-xl font-medium'>{props.size}</h1>
                 </div>
-
             </div>
             {/* <div className='pt-2'>
                 <Button className=' flex items-center gap-2 p-2 w-full'>Launch <Rocket size={15} /></Button>
