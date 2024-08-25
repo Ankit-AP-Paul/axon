@@ -9,6 +9,19 @@
 <img src="https://img.playbook.com/ITZqpuM98HrUFScs6dHxkJL97plM2KBnt2GT0_N1p8Y/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljL2VlNDA5NDdh/LTBmY2ItNDJkZC1i/ZDA0LTJhNTQxMjE5/NDFlYw" />
 <img src="https://img.playbook.com/V9ikme4o3mu9jZeSD6P1ZeLPzLtgxc7-fXNVe26qERQ/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljLzdmODgzMTNm/LTg3NTYtNGM1Ni05/NDlmLWNiOGQ4M2Nj/MDA5Zg"/>
 
+<h4>
+  Our project integrates the Wolfram API to handle complex calculations for provider fees and rental costs. By leveraging Wolfram's computational power, we ensure accurate and efficient calculations that      are essential for fair and transparent transactions within our platform. This integration highlights the versatility and reliability of Wolfram's API in handling real-time financial computations, making 
+  our project a strong contender in the Wolfram: API track.
+</h4>
+<img src="https://github.com/user-attachments/assets/d1110dea-392b-4cf9-87a4-1f535a9b4dae" />
+
+USAGE EXAMPLE-> ```http://api.wolframalpha.com/v1/simple?appid=<your-app-id>&i=What+airplanes+are+flying+overhead%3F```
+
+We are using `Wolfram | Alpha Instant Calculators API`, for cost calculation of a Linear Regression equation.
+<br />
+![Screenshot 2024-08-25 151025](https://github.com/user-attachments/assets/069e31bf-5415-4c2e-b847-1beace0a8a5a)
+
+
 <h4 align="center">Decentralized AI training powered by resource-driven computing and secure data sharing.</h4>
 
 ## 📋 ToC
