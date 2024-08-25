@@ -2,7 +2,7 @@
 import { images } from "@/constants/images/images";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Button } from "../ui/button";
 import { Menu } from "lucide-react";
 
@@ -12,6 +12,7 @@ import { stringToBytes } from "@taquito/utils";
 import { NetworkType, RequestSignPayloadInput, SigningType } from "@airgap/beacon-sdk";
 import { logout, userSignIn } from "@/lib/apiCalls";
 import { useRouter } from "next/navigation";
+import { useSidebar } from "@/store/useAddress";
 
 const Tezos = new TezosToolkit("https://ghostnet.ecadinfra.com");
 const wallet = new BeaconWallet({
@@ -36,7 +37,8 @@ Tezos.setWalletProvider(wallet)
 export default function NavbarMain() {
 
   const router = useRouter()
-  const [walletAddress, setWalletAddress] = useState<string | undefined>(undefined);
+
+  const { walletAddress, setWalletAddress, resetWalletAddress } = useSidebar((state) => state)
 
   useEffect(() => {
     const checkAccount = async () => {
@@ -72,7 +74,7 @@ export default function NavbarMain() {
 
   const disconnect = async () => {
     await wallet.client.clearActiveAccount()
-    setWalletAddress(undefined)
+    resetWalletAddress()
     await logout()
     router.push('/')
   }
