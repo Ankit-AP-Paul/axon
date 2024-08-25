@@ -183,13 +183,13 @@ router.post('/signin', async (req, res) => {
 
     const message = `Sign into axon on ${new Date().getDate()}.${new Date().getMonth()}.${new Date().getFullYear()}`
 
-    // const isVerified = verifySignature(messageToHexExpr(message), publicKey, signature)
+    const isVerified = verifySignature(messageToHexExpr(message), publicKey, signature)
 
-    // if (!isVerified) {
-    //     return res.status(411).json({
-    //         message: 'Incorrect signature'
-    //     })
-    // }
+    if (!isVerified) {
+        return res.status(411).json({
+            message: 'Incorrect signature'
+        })
+    }
 
     try {
         const existingUser = await prismaClient.user.findFirst({
