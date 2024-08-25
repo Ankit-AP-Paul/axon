@@ -1,17 +1,37 @@
 import { Router } from "express";
 import { authMiddleware } from "../../middleware";
 import { prismaClient } from "../../config";
+import { exec } from 'node:child_process'
+import { Machine } from "@prisma/client";
 
 const router = Router()
+
+const WOLFRAM_APP_ID = process.env.WOLFRAM_APP_ID
 
 
 router.get('/', async (req, res) => {
     try {
-        const machines = await prismaClient.machine.findMany({
+        let machines: Machine[] = []
+
+        let allMachines = await prismaClient.machine.findMany({
             where: {
                 in_use: false
             }
         })
+
+        if (allMachines.length > 0) {
+            for (const machine of allMachines) {
+                const cpu = machine.cpu
+                const ram = machine.ram
+
+                const res = await fetch(`https://api.wolframalpha.com/v2/query?input=(${cpu}*-0.000250583)%2B(${ram}*0.0000327202)%2B0.00214017&format=plaintext&output=JSON&appid=${WOLFRAM_APP_ID}`)
+
+                //@ts-ignore
+                machine.cost = cost
+
+                machines.push(machine)
+            }
+        }
 
         res.status(200).json({ machines })
     }
@@ -85,6 +105,7 @@ router.post('/create', authMiddleware, async (req, res) => {
         })
 
         // TODO: create binary with cpu and ram as arguments
+        // exec(`/mnt/configuration/`)
 
         console.log(machine)
 
