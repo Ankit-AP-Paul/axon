@@ -4,6 +4,7 @@ import { SpecsCard } from "@/constants/images/models/specscard.model";
 import { useEffect, useState, useTransition } from "react";
 import { getAllMachines } from "@/lib/apiCalls";
 import { toast } from "sonner";
+import FileUpload from "@/components/home/FileUpload";
 
 
 export default function Deployments() {
@@ -37,6 +38,9 @@ export default function Deployments() {
                     ))
                 }
             </div>
+
+              {data.length===0?<span></span> :  <FileUpload/>}
+
         </div>
     )
 }
