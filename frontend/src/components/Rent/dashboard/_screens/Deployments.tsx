@@ -1,21 +1,28 @@
-import { Button } from "@/components/ui/button";
-import { images } from "@/constants/images/images";
-import { Download } from "lucide-react";
+"use client"
+import ComputeCard from "@/components/search/cards/ComputeCard";
+import DownloadDaemon from "../DownloadDaemon";
+import { SpecsCard } from "@/constants/images/models/specscard.model";
+import { useState } from "react";
 
-export default function Deployments() {
+const data:SpecsCard[] = [
+    {cpu:"4",ram:"4",title:"dip",size:"512"},
+    {cpu:"4",ram:"4",title:"dip",size:"512"},
+    {cpu:"4",ram:"4",title:"dip",size:"512"}
+]
+
+
+export  default  function Deployments() {
+    const [select,setSelect]=useState(0);
+
+
     return (
         <div>
-            <div style={{ backgroundImage: `url(${images.daemon})`, backgroundRepeat: "no-repeat", backgroundPosition: "90%", }} className='w-full bg-pink-300 my-4 offsetEffect generalBorder flex flex-col gap-4 items-center justify-center'>
-                <Download size={30} />
-                <h2 className='text-3xl font-bold'>Download the Axon daemon now!</h2>
-                <span className='text-center max-w-[50%]'>
-                    The Axon daemon allows your device to share your resources for the AI training. This daemon runs in background and allocates the required resources for the processes.
-                </span>
-                <Button className='offsetstyle flex items-center gap-2 bg-white generalBorder text-black hover:text-white '>
-                    Download Daemon
-                    <Download />
-                </Button>
-            </div>
+             <div className="grid grid-cols-4 gap-4">
+        {data.map((ele,idx)=><ComputeCard key={idx} props={ele} selected={select===idx} onChange={()=>{
+            setSelect(idx);
+        }} />)}
+      </div>
+      <DownloadDaemon   cpu={data[select].cpu} title={data[select].title} ram={data[select].ram} size={data[select].size}  />
         </div>
     )
 }
