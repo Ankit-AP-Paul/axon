@@ -1,5 +1,4 @@
 import ChipsButton from '@/components/common/ChipsButton'
-import { Button } from '@/components/ui/button'
 import React, { useState } from 'react'
 
 interface Props {

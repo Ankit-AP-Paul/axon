@@ -1,13 +1,14 @@
 import ChipsButton from '@/components/common/ChipsButton'
-import { Button } from '@/components/ui/button'
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 interface Props {
     onChange: (tab: number) => void;
     activeIdx: number;
 }
 export default function ProviderTabs({ onChange, activeIdx }: Props) {
+    
     const [activeIndex, setActiveIndex] = useState(activeIdx);
+
     return (
         <div className='flex items-center gap-4 py-2'>
             <ChipsButton content='Launch app' onClick={() => {
