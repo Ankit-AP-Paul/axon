@@ -6,7 +6,7 @@ interface Props {
     activeIdx: number;
 }
 export default function ProviderTabs({ onChange, activeIdx }: Props) {
-    
+
     const [activeIndex, setActiveIndex] = useState(activeIdx);
 
     return (
@@ -29,6 +29,10 @@ export default function ProviderTabs({ onChange, activeIdx }: Props) {
                 onChange(3)
                 setActiveIndex(3)
             }} active={activeIndex === 3 ? true : false} />
+             <ChipsButton content='My Machines' onClick={() => {
+                onChange(4)
+                setActiveIndex(4)
+            }} active={activeIndex === 4 ? true : false} />
         </div>
     )
 }

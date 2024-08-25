@@ -3,4 +3,5 @@ export class SpecsCard {
   declare ram: string; // 1/16GB
   declare cpu: string; // 2/64GB
   declare size: string; // 0.06/20TB
+  declare active?:boolean;
 }
