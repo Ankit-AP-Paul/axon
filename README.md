@@ -1,25 +1,13 @@
 <h1 align="center">
   <br>
-  <a href="https://github.com/Ankit-AP-Paul/axon"><img src="https://github.com/user-attachments/assets/83a518b7-1af9-4672-aa16-aa7527950205" alt="Axon Logo" width="200"></a>
+  <a href="https://github.com/Ankit-AP-Paul/axon">
+    <img src="https://github.com/user-attachments/assets/71e720b5-4fcb-41a8-81c3-b15383728011" alt="Axon Logo" width="200" />
+  </a>
+
   <br>
   Axon
   <br>
 </h1>
-
-<img src="https://img.playbook.com/ITZqpuM98HrUFScs6dHxkJL97plM2KBnt2GT0_N1p8Y/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljL2VlNDA5NDdh/LTBmY2ItNDJkZC1i/ZDA0LTJhNTQxMjE5/NDFlYw" />
-<img src="https://img.playbook.com/V9ikme4o3mu9jZeSD6P1ZeLPzLtgxc7-fXNVe26qERQ/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljLzdmODgzMTNm/LTg3NTYtNGM1Ni05/NDlmLWNiOGQ4M2Nj/MDA5Zg"/>
-
-<h4>
-  Our project integrates the Wolfram API to handle complex calculations for provider fees and rental costs. By leveraging Wolfram's computational power, we ensure accurate and efficient calculations that      are essential for fair and transparent transactions within our platform. This integration highlights the versatility and reliability of Wolfram's API in handling real-time financial computations, making 
-  our project a strong contender in the Wolfram: API track.
-</h4>
-<img src="https://github.com/user-attachments/assets/d1110dea-392b-4cf9-87a4-1f535a9b4dae" />
-
-USAGE EXAMPLE-> ```http://api.wolframalpha.com/v1/simple?appid=<your-app-id>&i=What+airplanes+are+flying+overhead%3F```
-
-We are using `Wolfram | Alpha Instant Calculators API`, for cost calculation of a Linear Regression equation.
-<br />
-![Screenshot 2024-08-25 151025](https://github.com/user-attachments/assets/069e31bf-5415-4c2e-b847-1beace0a8a5a)
 
 
 <h4 align="center">Decentralized AI training powered by resource-driven computing and secure data sharing.</h4>
@@ -39,6 +27,30 @@ We are using `Wolfram | Alpha Instant Calculators API`, for cost calculation of 
 Axon is a decentralized physical infrastructure network for AI as a training service. This utilizes the concept of DePIN. Here we leverage the blockchain network to organize and manage the physical hardware network and in the end allow users to use desired machines for training their AI models. Users with higher specs can list their devices in this network and thus earn too, thus a well maintained use of excess resources, indeed.
 
 <div align="right">[ <a href="#-toc">Back to top ↑</a> ]</div>
+
+## Screenshots
+
+<img src="https://github.com/user-attachments/assets/b2105ec6-ac5d-462e-8bbe-281549b8c42e" />
+<img src="https://github.com/user-attachments/assets/f65e0382-1393-491a-b8dd-7fe6f3551457" />
+<img src="https://github.com/user-attachments/assets/de90c200-c03e-4876-b62b-9285b931c14b" />
+<img src="https://github.com/user-attachments/assets/8a4c10b8-705b-4c8e-87fb-58b2497b7ae3" />
+
+## Tracks used
+<img src="https://img.playbook.com/ITZqpuM98HrUFScs6dHxkJL97plM2KBnt2GT0_N1p8Y/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljL2VlNDA5NDdh/LTBmY2ItNDJkZC1i/ZDA0LTJhNTQxMjE5/NDFlYw" />
+<img src="https://img.playbook.com/V9ikme4o3mu9jZeSD6P1ZeLPzLtgxc7-fXNVe26qERQ/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljLzdmODgzMTNm/LTg3NTYtNGM1Ni05/NDlmLWNiOGQ4M2Nj/MDA5Zg"/>
+
+<h4>
+  Our project integrates the Wolfram API to handle complex calculations for provider fees and rental costs. By leveraging Wolfram's computational power, we ensure accurate and efficient calculations that      are essential for fair and transparent transactions within our platform. This integration highlights the versatility and reliability of Wolfram's API in handling real-time financial computations, making 
+  our project a strong contender in the Wolfram: API track.
+</h4>
+
+<img src="https://github.com/user-attachments/assets/d1110dea-392b-4cf9-87a4-1f535a9b4dae" />
+
+USAGE EXAMPLE-> ```http://api.wolframalpha.com/v1/simple?appid=<your-app-id>&i=What+airplanes+are+flying+overhead%3F```
+
+We are using `Wolfram | Alpha Instant Calculators API`, for cost calculation of a Linear Regression equation.
+<img src="https://github.com/user-attachments/assets/069e31bf-5415-4c2e-b847-1beace0a8a5a" />
+
 
 ## Built with
 - Next.js
