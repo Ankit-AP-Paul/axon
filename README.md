@@ -1,13 +1,145 @@
-# Axon - AI Training as a Service
+<h1 align="center">
+  <br>
+  <a href="https://github.com/Ankit-AP-Paul/axon"><img src="https://github.com/user-attachments/assets/83a518b7-1af9-4672-aa16-aa7527950205" alt="Axon Logo" width="200"></a>
+  <br>
+  Axon
+  <br>
+</h1>
 
-Decentralized AI training powered by resource-driven computing and secure data sharing.
+<h4 align="center">Decentralized AI training powered by resource-driven computing and secure data sharing.</h4>
+
+## 📋 ToC
+- [About](#about)
+- [Built with](#built-with)
+- [Key Features](#key-features)
+- [Demo](#demo)
+- [Deployment](#deployment)
+- [API Reference](#api-reference)
+- [Authors](#authors)
+- [Contact Us](#contact-us)
+
+
+## About
+Axon is a decentralized physical infrastructure network for AI as a training service. This utilizes the concept of DePIN. Here we leverage the blockchain network to organize and manage the physical hardware network and in the end allow users to use desired machines for training their AI models. Users with higher specs can list their devices in this network and thus earn too, thus a well maintained use of excess resources, indeed.
+
+<div align="right">[ <a href="#-toc">Back to top ↑</a> ]</div>
+
+## Built with
+- Next.js
+- Tailwind CSS
+- Node
+- Express.js
+- Web3.js
+- Tezos Wallet
+- MinIO (Bucket)
+- Beeceptor
+- GitHub Actions
+- Render
+- Vercel
+
+<div align="right">[ <a href="#-toc">Back to top ↑</a> ]</div>
+
+## Key Features
+-   First Decentralised Physical Infrastructure Network for AI Training as a service.
+-   Resource Monetization for high spec machine providers
+-   Trust and Security due to blockchain in monetary transactions
+-   Build for traning AI models remotely
+-   Community Driven
+-   Flexibility
+-   Cost Efficiency
+
+<div align="right">[ <a href="#-toc">Back to top ↑</a> ]</div>
+
+## Demo
+
+[![Watch the video]()]()
+
+<div align="right">[ <a href="#-toc">Back to top ↑</a> ]</div>
+
+## Deployment
+
+To deploy the backend run
+
+```bash
+  cd backend
+  npm install
+  npm run dev
+```
+
+To deploy the frontend run
+
+```bash
+  cd frontend
+  bun install
+  bun dev
+```
+
+<div align="right">[ <a href="#-toc">Back to top ↑</a> ]</div>
+
+## API Reference
+All the endpoins are well documented by using Beeceptor
+
+#### Auth Sign Up
+
+```
+  POST /auth/sign-up
+```
+
+| Parameter  | Type     | Description   |
+| :--------- | :------- | :------------ |
+| `email`    | `string` | **Required**. |
+| `password` | `string` | **Required**. |
+| `name`     | `string` | **Required**. |
+| `address`  | `string` | **Required**. |
+| `role`     | `string` | **Required**. |
+
+#### Auth Login
+
+```
+  POST /auth/login
+```
+
+| Parameter  | Type     | Description   |
+| :--------- | :------- | :------------ |
+| `email`    | `string` | **Required**. |
+| `password` | `string` | **Required**. |
+
+#### Create Machine
+
+```
+  POST /machine/create
+```
+
+| Parameter | Type      | Description   |
+| :-------- | :-------- | :------------ |
+| `userId`  | `string`  | **Required**. |
+| `title`   | `string`  | **Required**. |
+| `cpu`     | `integer` | **Required**. |
+| `ram`     | `integer` | **Required**. |
+| `size`    | `integer` | **Required**. |
+| `time`    | `integer` | **Required**. |
+
+#### Storing Data
+
+```
+  GET /store/presigned-url
+```
+
+| Parameter | Type     | Description   |
+| :-------- | :------- | :------------ |
+| `name`    | `string` | **Required**. |
+
+<div align="right">[ <a href="#-toc">Back to top ↑</a> ]</div>
 
 ## Authors
 
-- [@Ankit Paul](https://github.com/Ankit-AP-Paul)
-- [@Abhirup Saha](https://github.com/Abhirup-02)
-- [@Diptanshu Mahish](https://github.com/diptanshumahish)
+-   [@Ankit Paul](https://github.com/Ankit-AP-Paul)
+-   [@Abhirup Saha](https://github.com/Abhirup-02)
+-   [@Diptanshu Mahish](https://github.com/diptanshumahish)
 
-## Feedback
 
-If you have any feedback, please reach out to us at ankitpaul894@gmail.com
+## Contact Us
+
+If you have any queries, feedback, or want to collaborate, please reach out to us at our [discord](https://discord.gg/aqdx4JBC) channel.
+
+<div align="right">[ <a href="#-toc">Back to top ↑</a> ]</div>
