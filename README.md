@@ -6,6 +6,9 @@
   <br>
 </h1>
 
+<img src="https://img.playbook.com/ITZqpuM98HrUFScs6dHxkJL97plM2KBnt2GT0_N1p8Y/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljL2VlNDA5NDdh/LTBmY2ItNDJkZC1i/ZDA0LTJhNTQxMjE5/NDFlYw" />
+<img src="https://img.playbook.com/V9ikme4o3mu9jZeSD6P1ZeLPzLtgxc7-fXNVe26qERQ/Z3M6Ly9wbGF5Ym9v/ay1hc3NldHMtcHVi/bGljLzdmODgzMTNm/LTg3NTYtNGM1Ni05/NDlmLWNiOGQ4M2Nj/MDA5Zg"/>
+
 <h4 align="center">Decentralized AI training powered by resource-driven computing and secure data sharing.</h4>
 
 ## 📋 ToC
