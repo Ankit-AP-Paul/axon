@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
+import { getPresignedURL } from '@/lib/apiCalls';
 
 
 
@@ -21,23 +22,28 @@ export default function FileUpload() {
             const file: File = e.target.files[0]
             const filename = file.name;
 
-            // const { userID, presignedURL } = await getPresignedURL(filename)
+            const { userID, presignedURL } = await getPresignedURL(filename)
 
-            // new Promise(async (resolve, reject) => {
-            //     await fetch(presignedURL, {
-            //         method: 'PUT',
-            //         body: file
-            //     })
+            new Promise(async (resolve, reject) => {
+                await fetch(presignedURL, {
+                    method: 'PUT',
+                    body: file
+                })
 
-            //     resolve(onImageAdded(${process.env.NEXT_PUBLIC_API_URL}/get-object?userID=${userID}&filename=${filename}))
+            //    (${process.env.NEXT_PUBLIC_API_URL}/get-object?userID=${userID}&filename=${filename}))
             // })
             filenames.push(filename);
-        }
-        catch (err) {
-            console.error(err)
-        }
-        setUploading(false)
-    }
+        });
+    }catch(err){
+        console.log(err);
+    }
+        // catch (err) {
+        //     console.error(err)
+        // }
+        // setUploading(false)
+//   catch(err){
+
+// }
   return (
     <div className='flex border border-white p-4 rounded-lg my-4 flex-col gap-2 max-w-[40%]'>
         <h2>Upload your files</h2>
@@ -58,3 +64,4 @@ export default function FileUpload() {
     </div>
   )
 }
+    }

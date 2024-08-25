@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { SpecsCard } from '@/constants/images/models/specscard.model'
+import { calculateCost } from '@/lib/cost-calculation';
 import { Rocket } from 'lucide-react';
 import React from 'react'
 import { twMerge } from 'tailwind-merge';
@@ -32,6 +33,9 @@ export default function ComputeCard({ props, selected, onChange }: Props) {
                     <span className='text-xs text-gray-600'>Available space</span>
                     <h1 className='text-xl font-medium'>{props.size}</h1>
                 </div>
+                <span>
+                    Estimated cost {calculateCost({ cpu: props.cpu, ram: props.ram })}
+                </span>
             </div>
             {/* <div className='pt-2'>
                 <Button className=' flex items-center gap-2 p-2 w-full'>Launch <Rocket size={15} /></Button>
