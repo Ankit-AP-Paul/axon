@@ -24,7 +24,6 @@ export async function userSignIn(address: string, publicKey: string, signature: 
     }
 }
 
-
 export async function logout() {
     try {
         const res = await fetch(`${API_URL}/auth/logout`, {
@@ -39,6 +38,83 @@ export async function logout() {
         console.error(err)
     }
 }
+
+export async function getContractor() {
+    try {
+        const res = await fetch(`${API_URL}/auth/get-contractor`, {
+            credentials: 'include'
+        })
+
+        const data = await res.json()
+
+        return data.contractor
+    }
+    catch (err) {
+        console.error(err)
+    }
+}
+
+export async function getProvider() {
+    try {
+        const res = await fetch(`${API_URL}/auth/get-provider`, {
+            credentials: 'include'
+        })
+
+        const data = await res.json()
+
+        return data.provider
+    }
+    catch (err) {
+        console.error(err)
+    }
+}
+
+export async function contractorProfile(name: string, email: string) {
+    try {
+        const res = await fetch(`${API_URL}/auth/contractor-signup`, {
+            method: 'POST',
+            body: JSON.stringify({
+                name,
+                email
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include'
+        })
+
+        const data = await res.json()
+
+        return data.message
+    }
+    catch (err) {
+        console.error(err)
+    }
+}
+
+export async function providerProfile(name: string, email: string) {
+    try {
+        const res = await fetch(`${API_URL}/auth/provider-signup`, {
+            method: 'POST',
+            body: JSON.stringify({
+                name,
+                email
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include'
+        })
+
+        const data = await res.json()
+
+        return data.message
+    }
+    catch (err) {
+        console.error(err)
+    }
+}
+
 
 export async function getPresignedURL(filename: string) {
     try {
