@@ -7,7 +7,7 @@ import ComputeCard from "./cards/ComputeCard";
 export default function SearchWrapper() {
   return (
     <div className="px-[5%]">
-      <div className="w-full generalBorder offsetEffect bg-yellow-300">
+      {/* <div className="w-full generalBorder offsetEffect bg-yellow-300">
         <h2 className="text-3xl font-bold">Available compute</h2>
         <span>Here is the compute you have to access from our providers</span>
       </div>
@@ -25,7 +25,7 @@ export default function SearchWrapper() {
       <div className="grid grid-cols-4 gap-4">
         <ComputeCard
           props={{
-            activity: 4,
+
             cpu: "4/24GB",
             gpu: "1/15GB",
             id: "9iisjkjJHHH98j",
@@ -35,7 +35,7 @@ export default function SearchWrapper() {
         />
         <ComputeCard
           props={{
-            activity: 2,
+
             cpu: "20/32GB",
             gpu: "2/35GB",
             id: "9iisjkjJHHH98j",
@@ -43,7 +43,7 @@ export default function SearchWrapper() {
             space: "0.13/64TB",
           }}
         />
-      </div>
+      </div> */}
     </div>
   );
 }
