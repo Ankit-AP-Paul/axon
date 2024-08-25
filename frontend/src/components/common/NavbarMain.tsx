@@ -9,36 +9,32 @@ import { Menu } from "lucide-react";
 import { TezosToolkit } from "@taquito/taquito";
 import { BeaconWallet } from "@taquito/beacon-wallet";
 import { stringToBytes } from "@taquito/utils";
-import { NetworkType, RequestSignPayloadInput, SigningType } from "@airgap/beacon-sdk";
+import {
+  NetworkType,
+  RequestSignPayloadInput,
+  SigningType,
+} from "@airgap/beacon-sdk";
 import { logout, userSignIn } from "@/lib/apiCalls";
 import { useRouter } from "next/navigation";
 import { useSidebar } from "@/store/useAddress";
-
-const Tezos = new TezosToolkit("https://ghostnet.ecadinfra.com");
-const wallet = new BeaconWallet({
-  name: "Axon",
-  network: { type: NetworkType.GHOSTNET },
-});
-
+import { Tezos, wallet } from "@/lib/wallet-config";
 
 function messageToHexExpr(message: string) {
-  const bytes = stringToBytes(message)
-  const bytesLength = (bytes.length / 2).toString(16)
-  const addPadding = `00000000${bytesLength}`
-  const paddedBytesLength = addPadding.slice(addPadding.length - 8)
-  const hexExpr = '05' + '01' + paddedBytesLength + bytes
+  const bytes = stringToBytes(message);
+  const bytesLength = (bytes.length / 2).toString(16);
+  const addPadding = `00000000${bytesLength}`;
+  const paddedBytesLength = addPadding.slice(addPadding.length - 8);
+  const hexExpr = "05" + "01" + paddedBytesLength + bytes;
 
   return hexExpr;
-};
-
-Tezos.setWalletProvider(wallet)
-
+}
 
 export default function NavbarMain() {
+  const router = useRouter();
 
-  const router = useRouter()
-
-  const { walletAddress, setWalletAddress, resetWalletAddress } = useSidebar((state) => state)
+  const { walletAddress, setWalletAddress, resetWalletAddress } = useSidebar(
+    (state) => state
+  );
 
   useEffect(() => {
     const checkAccount = async () => {
@@ -55,9 +51,9 @@ export default function NavbarMain() {
     const { address, publicKey } = await wallet.client.requestPermissions();
     setWalletAddress(address);
 
-    if (!address || !publicKey) return
+    if (!address || !publicKey) return;
 
-    const message = `Sign into axon on ${new Date().getDate()}.${new Date().getMonth()}.${new Date().getFullYear()}`
+    const message = `Sign into axon on ${new Date().getDate()}.${new Date().getMonth()}.${new Date().getFullYear()}`;
 
     const payload: RequestSignPayloadInput = {
       signingType: SigningType.MICHELINE,
@@ -69,15 +65,15 @@ export default function NavbarMain() {
 
     if (!response) return;
 
-    await userSignIn(address, publicKey, response.signature)
-  }
+    await userSignIn(address, publicKey, response.signature);
+  };
 
   const disconnect = async () => {
-    await wallet.client.clearActiveAccount()
-    resetWalletAddress()
-    await logout()
-    router.push('/')
-  }
+    await wallet.client.clearActiveAccount();
+    resetWalletAddress();
+    await logout();
+    router.push("/");
+  };
 
   return (
     <div className="flex w-full">
