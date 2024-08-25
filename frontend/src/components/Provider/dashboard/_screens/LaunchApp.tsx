@@ -92,7 +92,7 @@ export default function LaunchApp() {
 
         <div className="flex flex-col gap-1 py-4 w-[40%]">
           <span>Name for your device</span>
-          <Input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="A catchy name maybe..." className="text-black" />
+          <Input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="A catchy name maybe..." required className="text-black" />
         </div>
 
         <Button type="submit" disabled={isPending} className="bg-white text-black hover:bg-yellow-400 hover:text-white">Submit</Button>

@@ -39,7 +39,7 @@ export default function Deployments() {
                 }
             </div>
 
-              {data.length===0?<span></span> :  <FileUpload/>}
+            {!data.length ? <span>No machines are available for now</span> : <FileUpload />}
 
         </div>
     )
