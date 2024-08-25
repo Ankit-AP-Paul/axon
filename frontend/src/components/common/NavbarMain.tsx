@@ -2,19 +2,17 @@
 import { images } from "@/constants/images/images";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Button } from "../ui/button";
-import { Menu, Wallet2 } from "lucide-react";
+import { Menu } from "lucide-react";
 
 import { TezosToolkit } from "@taquito/taquito";
 import { BeaconWallet } from "@taquito/beacon-wallet";
 import { stringToBytes } from "@taquito/utils";
-import {
-  NetworkType,
-  RequestSignPayloadInput,
-  SigningType,
-} from "@airgap/beacon-sdk";
+import { NetworkType, RequestSignPayloadInput, SigningType } from "@airgap/beacon-sdk";
 import { logout, userSignIn } from "@/lib/apiCalls";
+import { useRouter } from "next/navigation";
+import { useSidebar } from "@/store/useAddress";
 
 const Tezos = new TezosToolkit("https://ghostnet.ecadinfra.com");
 const wallet = new BeaconWallet({
@@ -37,7 +35,10 @@ Tezos.setWalletProvider(wallet)
 
 
 export default function NavbarMain() {
-  const [walletAddress, setWalletAddress] = useState<string | undefined>(undefined);
+
+  const router = useRouter()
+
+  const { walletAddress, setWalletAddress, resetWalletAddress } = useSidebar((state) => state)
 
   useEffect(() => {
     const checkAccount = async () => {
@@ -56,7 +57,7 @@ export default function NavbarMain() {
 
     if (!address || !publicKey) return
 
-    const message = `Sign into axon on ${new Date().getDate()}.${new Date().getMonth()}.${new Date().getFullYear()}`;
+    const message = `Sign into axon on ${new Date().getDate()}.${new Date().getMonth()}.${new Date().getFullYear()}`
 
     const payload: RequestSignPayloadInput = {
       signingType: SigningType.MICHELINE,
@@ -73,13 +74,14 @@ export default function NavbarMain() {
 
   const disconnect = async () => {
     await wallet.client.clearActiveAccount()
-    setWalletAddress(undefined)
+    resetWalletAddress()
     await logout()
+    router.push('/')
   }
 
   return (
     <div className="flex w-full">
-      <nav className="px-[2%] w-full bg-transparent  py-2  flex justify-between items-center">
+      <nav className="px-[2%] w-full bg-transparent py-4 flex justify-between items-center">
         <div className="flex items-center gap-2">
           <Image src={images["logo"]} height={40} width={40} alt="lgo" />
           <span className="font-bold text-lg">Axon</span>
@@ -92,9 +94,6 @@ export default function NavbarMain() {
           <Link href="/rent">Renting</Link>
         </div>
         <div>
-          <Button className="bg-white border hover:text-white border-black ml-2 text-black rounded-md offsetstyle">
-            <Link href="/onboard">Sign in</Link>
-          </Button>
           <Button
             className={
               !walletAddress
@@ -106,7 +105,7 @@ export default function NavbarMain() {
           </Button>
         </div>
 
-        <Button className="aspect-square p-[10px] offsetstyle bg-white  text-black generalBorder md:hidden hover:text-white">
+        <Button className="aspect-square p-[10px] offsetstyle bg-white text-black generalBorder md:hidden hover:text-white">
           <Menu size={30} />
         </Button>
       </nav>
