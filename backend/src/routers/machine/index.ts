@@ -11,27 +11,27 @@ const WOLFRAM_APP_ID = process.env.WOLFRAM_APP_ID
 
 router.get('/', async (req, res) => {
     try {
-        let machines: Machine[] = []
+        // let machines: Machine[] = []
 
-        let allMachines = await prismaClient.machine.findMany({
+        let machines = await prismaClient.machine.findMany({
             where: {
                 in_use: false
             }
         })
 
-        if (allMachines.length > 0) {
-            for (const machine of allMachines) {
-                const cpu = machine.cpu
-                const ram = machine.ram
+        // if (allMachines.length > 0) {
+        //     for (const machine of allMachines) {
+        //         const cpu = machine.cpu
+        //         const ram = machine.ram
 
-                const res = await fetch(`https://api.wolframalpha.com/v2/query?input=(${cpu}*-0.000250583)%2B(${ram}*0.0000327202)%2B0.00214017&format=plaintext&output=JSON&appid=${WOLFRAM_APP_ID}`)
+        //         const res = await fetch(`https://api.wolframalpha.com/v2/query?input=(${cpu}*-0.000250583)%2B(${ram}*0.0000327202)%2B0.00214017&format=plaintext&output=JSON&appid=${WOLFRAM_APP_ID}`)
 
-                //@ts-ignore
-                machine.cost = cost
+        //         //@ts-ignore
+        //         machine.cost = cost
 
-                machines.push(machine)
-            }
-        }
+        //         machines.push(machine)
+        //     }
+        // }
 
         res.status(200).json({ machines })
     }

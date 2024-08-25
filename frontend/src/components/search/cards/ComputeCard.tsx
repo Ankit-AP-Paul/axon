@@ -6,12 +6,13 @@ import { twMerge } from 'tailwind-merge';
 interface Props {
     props: SpecsCard;
     selected?: boolean;
-    onChange?: () => void
+    onClick?: () => void
 }
-export default function ComputeCard({ props, selected, onChange }: Props) {
+
+export default function ComputeCard({ props, selected, onClick }: Props) {
     return (
         <div
-            onClick={onChange}
+            onClick={onClick}
             className={twMerge("p-4 border gap-2 rounded-md cursor-pointer", props.in_use ? "bg-slate-50 text-black" : "bg-green-500 text-black")}
         >
             <div className='grid grid-cols-2 gap-2'>

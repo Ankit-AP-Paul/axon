@@ -3,8 +3,6 @@ import { useState, useTransition } from "react";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { getPresignedURL } from "@/lib/apiCalls";
-import { Tezos, wallet } from "@/lib/wallet-config";
-import { TezosOperationType } from "@airgap/beacon-sdk";
 
 export default function FileUpload() {
   const [filenames, setFilenames] = useState<string[]>([]);
@@ -32,23 +30,6 @@ export default function FileUpload() {
     });
   }
 
-  //
-  // -------------------------------------------------Send Tezos ------------------------------------------------//
-  //
-  const sendTezos = async (amount: number) => {
-    amount = amount * 1000000;
-    const amt = amount.toString();
-    const response = await wallet.sendOperations([
-      {
-        kind: TezosOperationType.TRANSACTION,
-        amount: amt, //amount in mutez (1 tez = 1,000,000 mutez)
-        destination: "tz1bgjn4fxYVsoiWxiueYF2jXog1qJjVHCaM", //destination address
-      },
-    ]);
-
-    console.log(`Operation hash: ${response}`);
-  };
-  // -----------------------------------------------------------------------------------------------------------//
 
   return (
     <div className="flex border border-white p-4 rounded-lg my-4 flex-col gap-2 max-w-[40%]">

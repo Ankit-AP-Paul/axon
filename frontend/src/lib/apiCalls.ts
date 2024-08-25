@@ -176,7 +176,29 @@ export async function getMyMachines() {
     const data = await res.json()
 
     return data.machines
-    
+
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+export async function rentMachine(machineID: string) {
+  try {
+    const res = await fetch(`${API_URL}/machine/create`, {
+      method: "POST",
+      body: JSON.stringify({
+        machineID
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include"
+    })
+
+    const data = await res.json()
+
+    return data.message
+
   } catch (err) {
     console.error(err)
   }

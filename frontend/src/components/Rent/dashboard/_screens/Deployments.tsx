@@ -2,9 +2,11 @@
 import ComputeCard from "@/components/search/cards/ComputeCard";
 import { SpecsCard } from "@/constants/images/models/specscard.model";
 import { useEffect, useState, useTransition } from "react";
-import { getAllMachines } from "@/lib/apiCalls";
+import { getAllMachines, rentMachine } from "@/lib/apiCalls";
 import { toast } from "sonner";
 import FileUpload from "@/components/home/FileUpload";
+import { sendTezos } from "@/lib/payment";
+import { calculateCost } from "@/lib/cost-calculation";
 
 
 export default function Deployments() {
@@ -34,6 +36,11 @@ export default function Deployments() {
                         <ComputeCard
                             key={ele.id}
                             props={ele}
+                            onClick={async () => {
+                                const cost = calculateCost({ cpu: ele.cpu, ram: ele.ram })
+                                await sendTezos(cost)
+                                await rentMachine(ele.id)
+                            }}
                         />
                     ))
                 }
