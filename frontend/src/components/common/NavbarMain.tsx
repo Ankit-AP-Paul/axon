@@ -84,7 +84,7 @@ export default function NavbarMain() {
         </div>
         <div className="font-medium md:flex hidden gap-4 items-center w-max">
           <Link href="/">Home</Link>
-          <Link href="/docs">Docs</Link>
+          {/* <Link href="/docs">Docs</Link> */}
           <Link href="/#faq">FAQs</Link>
           <Link href="/provider">Provider</Link>
           <Link href="/rent">Renting</Link>
